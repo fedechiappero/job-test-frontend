@@ -1,0 +1,28 @@
+<div>
+  <h2>
+    Add new
+  </h2>
+
+  <div>
+    <label for="title">Title:
+      <input type="text" name="title" #postTitle>
+    </label>
+    <label for="description">Description:
+      <textarea name="descriptcion" cols="30" rows="10" #postDescription></textarea>
+    </label>
+    <button (click)="save(postTitle.value, postDescription.value)">Save!</button>
+  </div>
+</div>
+
+<div>
+  <h2>
+    List
+  </h2>
+
+  <ul>
+    <li *ngFor="let post of posts.posts">
+      <h3>{{post.title}}</h3>
+      <p>{{post.description}}</p>
+    </li>
+  </ul>
+</div>
