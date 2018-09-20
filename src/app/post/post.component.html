@@ -1,28 +1,44 @@
-<div>
+<ngb-alert *ngIf="successMessage" type="success" (close)="successMessage = null">{{ successMessage }}</ngb-alert>
+<div class="container">
+
   <h2>
     Add new
   </h2>
 
-  <div>
-    <label for="title">Title:
-      <input type="text" name="title" #postTitle>
-    </label>
-    <label for="description">Description:
-      <textarea name="descriptcion" cols="30" rows="10" #postDescription></textarea>
-    </label>
-    <button (click)="save(postTitle.value, postDescription.value)">Save!</button>
-  </div>
-</div>
+  <form>
+    <div class="row">
+      <div class="form-group col-xs-4 col-md-offset-4">
+        <label for="title">Title:
+          <input type="text" class="form-control" #postTitle id="title">
+        </label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="form-group col-xs-4 col-md-offset-4">
+        <label for="description">Description:</label>
+        <textarea class="form-control" rows="5" #postDescription id="description"></textarea>
+      </div>
+    </div>
+    <div class="row">
+      <div class="form-group">
+        <button (click)="save(postTitle.value, postDescription.value); postTitle.value=''; postDescription.value=''" type="button" class="btn btn-success">Save!</button>
+      </div>
+    </div>
+  </form>
 
-<div>
   <h2>
     List
   </h2>
 
   <ul>
-    <li *ngFor="let post of posts.posts">
-      <h3>{{post.title}}</h3>
-      <p>{{post.description}}</p>
+    <li class="col-lg-3" *ngFor="let post of posts.posts">
+      <div class="panel panel-primary">
+        <div class="panel-heading">{{post.title}}</div>
+        <div class="panel-body">
+          <p>{{post.description}}</p>
+        </div>
+      </div>
     </li>
   </ul>
+
 </div>
