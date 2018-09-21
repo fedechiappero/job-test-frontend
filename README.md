@@ -18,4 +18,4 @@
 
 $ npm install
 
-$ npm start
+$ ng server -o
